@@ -1,0 +1,22 @@
+public class zhengeteach {
+/**数组
+*/
+//初始化数组
+	int[] shuzu = new int[100];//一个长度100的数组
+//存入1-100
+	for(int i = 1; i <= 100, i++) {
+		shuzu[i] = 1;
+		}
+	//打印1-100的数组
+	for (int i = 1, i < shuzu.length;i++) {
+	system.out.println(shuz[i]);
+	}
+	//删除数组
+	//删除50-60的数组
+	for (int i = 1; i < shuzu.length; i++) {
+		if(shuzu[i] <= 60 || shuzu[i] >=50) {
+			shuzu[i] = 0;
+			}
+		}
+		
+	
