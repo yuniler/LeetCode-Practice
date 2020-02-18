@@ -1,0 +1,101 @@
+public class zhengeteach {
+	
+	public static void main(String[] args) {
+	
+	}
+/**数组
+*/
+//初始化数组
+	public void shuzu(){
+		int[] shuzu = new int[100];//一个长度100的数组
+//存入1-100
+		for(int i = 1; i <= 100; i++) {
+		shuzu[i] = 1;
+		}
+	//打印1-100的数组
+		for (int i = 1; i < shuzu.length; i++) {
+		System.out.println(shuz[i]);
+	}
+	//删除数组
+	//删除50-60的数组
+		for (int i = 1; i < shuzu.length; i++) {
+		if(shuzu[i] <= 60 || shuzu[i] >=50) {
+			shuzu[i] = 0;
+			}
+		}
+	}
+		
+	//ArrayList
+	public void ArrayList(){
+	//初始化
+		ArrayList<Integer> arraylist = new arraylist<>();
+	//存入1-100
+		for (int i = 1; i <= 100; i++){
+			arraylist.add(i);
+		}
+		//打印1-100的数组
+		for (int i = 0; i < arraylist.size(); i++) {
+			System.out.println(arraylist.get(i));
+		}
+		//将50-60改为0
+		for (int i = 0; i < arraylist.size(); i++) {
+			if (arraylist.get(i) >= 50 || arraylist.get(i) <= 60) {
+			arraylist.set(i,0);//调用方法
+			}
+		}
+	}	
+	public void list(){
+		//打印出10,15
+		for(int i = 10; i < 20; i += 5) {
+		System.out.print("value of i : " + i );
+		System.out.print("\n");//有时换单写最好
+		}
+	}
+	
+	map方法
+	public void map(){
+	/**
+	("key1", "chengji1")
+	("key2", "chengji2")
+	("key3", "chengji3")
+	("key4", "chengji4")
+	("key100", "chengji100")
+	
+		//初始化hashmap
+		HashMap<Integer> map = new HashMap<>();
+		//赋值1-100
+		for (int i = 1; i <= 100; i++) {
+			map.put("key:" + i, "chengji" + i);
+		}
+		//打印map
+		for (int i = 1; i <= 100; i++){
+			String curr = map.get("key" + i);//通过key打出相应的value
+			System.out.print("key" + i);//打印key
+			System.out.print(curr);//打印value
+		}
+		
+		//打印，不知道key；乱序的list； set跟list类似
+		//list --> [1,2,3,4,5,...,100]
+		//set  --> [2,5,19,31,...,30 ]
+		Set<String> set = map.keySet();
+		
+		for (String curr : set) {
+			System.out.print(curr);//key
+			System.out.print(map.get(curr));//value
+		}
+		//将第50-60改为0，iterator
+		Iterator<String> iterator = set.iterator();
+		while (iterator.hasNext()){
+			String key = iterator.next();//key
+			String value = map.get(key);//value
+			if(value.equals("chengji50")){
+				map.put(key,"chengji0");
+			}
+			
+			if (value.equals("chengji60")){
+				map.remove(key)//remove    (key60,value60)
+			}
+		}
+	}
+		
+		
