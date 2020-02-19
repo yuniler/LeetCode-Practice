@@ -1,0 +1,20 @@
+class Solution {
+    public int[] twoSum(int[] numbers, int target) {
+    int[] indice = new int[2];//初始化数组
+    if (numbers == null || numbers.length < 2) return indice;//题目条件
+    int left = 0, right = numbers.length - 1;//把数字变成变量，好进行操作
+        while (left < right) {//进行循环判断
+            int v = numbers[left] + numbers[right];//向中间靠拢达到取到target
+            if(v == target) {//如果等则将index打出
+                indice[0] = left + 1;
+                indice[1] = right + 1;
+                break;
+            } else if (v > target) {
+                right --;
+            } else {
+                left ++;
+            }
+        }
+        return indice;
+     }
+}
