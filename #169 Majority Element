@@ -1,0 +1,8 @@
+class Solution {
+    public int majorityElement(int[] nums) {
+        //肯定为奇数个，所以大小排序打印中间一个数即可，       //便捷方法
+        Arrays.sort(nums);//大小排序
+        int len = nums.length;//给定长度
+        return nums[len/2];//返回中间值
+    }
+}
