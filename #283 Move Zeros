@@ -1,0 +1,17 @@
+class Solution {
+    public void moveZeroes(int[] nums) {
+        //非零元素尽量前移
+        //用零元素填满空间
+        if (nums == null || nums.length == 0) return ;
+        
+        int sub = 0;
+        for(int num :nums){
+           if(num != 0)nums[sub++] = num;
+        }
+        
+        while(sub < nums.length){
+            nums[sub++] = 0;
+        }
+        
+    }
+}
