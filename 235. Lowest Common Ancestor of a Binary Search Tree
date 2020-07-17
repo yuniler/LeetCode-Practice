@@ -1,0 +1,17 @@
+class Solution {
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        while(root != null){
+            //判断2个节点小于跟节点
+            if(p.val < root.val && q.val < root.val){
+                root = root.left;
+            }
+            //判断2值是否大于右节点
+            else if(p.val > root.val && q.val > root.val){
+                root = root.right;
+            }else{
+                return root;
+            }
+        }
+        return null;
+    }
+}
