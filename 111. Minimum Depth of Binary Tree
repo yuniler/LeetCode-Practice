@@ -1,0 +1,10 @@
+class Solution {
+    public int minDepth(TreeNode root) {
+        if(root == null) return 0;
+        int left = minDepth(root.left);
+        int right = minDepth(root.right);
+        return (left == 0 || right ==0)
+            ? left + right + 1 //加1表当前加上当前节点
+            : Math.min(left , right) + 1;
+    }
+}
