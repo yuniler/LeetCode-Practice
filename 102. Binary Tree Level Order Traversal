@@ -1,0 +1,27 @@
+class Solution {
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        //广度优先BFS
+        List<List<Integer>> result = new ArrayList<>();
+        if(root == null){
+            return result;//非空判断
+        }
+        Queue<TreeNode> q = new LinkedList<>();//链表解决
+        q.add(root);//把root值加到q里面
+        
+        while(!q.isEmpty()){//循环直到为空
+            int levelSize = q.size();
+            List<Integer> currLevel = new ArrayList<>();//当前层
+            
+            for(int i = 0; i < levelSize; i++){
+                TreeNode currNode = q.poll();//取出最近的值
+                currLevel.add(currNode.val);//放到当前层。每层有多少
+                if(currNode.left != null)
+                    q.add(currNode.left);//不为空，往当前节点继续灌入
+                if(currNode.right != null)
+                    q.add(currNode.right);
+            }
+            result.add(currLevel);
+        }
+        return result;
+    }
+}
