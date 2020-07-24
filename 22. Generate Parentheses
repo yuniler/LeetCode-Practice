@@ -1,0 +1,20 @@
+class Solution {
+    public List<String> generateParenthesis(int n) {
+        List<String> result = new ArrayList<String>();
+        gen("" , result , n , n);//n表还剩多少个
+        return result;
+    }
+    
+    public void gen(String subList, List<String> result, int left, int right){
+        if (left == 0 && right == 0) { //递归终止条件
+            result.add(subList);
+            return;
+        }
+        if (left > 0) {
+            gen(subList + "(" , result, left - 1, right);
+        }
+        if (right > left) {
+            gen(subList + ")" , result, left, right - 1);
+        }
+    }
+}
