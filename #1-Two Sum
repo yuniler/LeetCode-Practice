@@ -1,9 +1,9 @@
 class Solution {
     public int[] twoSum(int[] nums, int target) {
         int[] result = new int[2];//新建一个result 数组
-        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        Map<Integer, Integer> map = new HashMap<Integer, Integer>();//采用hashMap无序不可重复
         for (int i = 0; i < nums.length; i++) {//循环它
-            if (map.containsKey(target - nums[i])){//如果包含
+            if (map.containsKey(target - nums[i])){//如果包含相加后的值，将俩值输出
                 result[1] = i;
                 result[0] = map.get(target - nums[i]);
                 return result;
