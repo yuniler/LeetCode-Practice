@@ -1,0 +1,8 @@
+class Solution {
+    public int maximumProduct(int[] nums) {
+        //出现负数情况取顺序前3，否则去后3
+        int n = nums.length;
+        Arrays.sort(nums);
+        return Math.max(nums[0] * nums[1] * nums[n - 1],nums[n - 1] * nums[n - 2] * nums[n - 3]);//为负数时。最小俩个加上最大一个
+    }
+}
