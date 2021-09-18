@@ -1,0 +1,17 @@
+class Solution {
+    public boolean isPalindrome(String s) {
+        if (s == null) return true;
+
+        s = s.toLowerCase();
+        int len = s.length();
+        StringBuilder sb = new StringBuilder(len);
+
+        for(char c : s.toCharArray()){
+            if((c >= '0' && c <= '9') || (c >= 'a' && c <= 'z')){//添加所有字符
+                sb.append(c);
+            }
+        }
+        return sb.toString().equals(sb.reverse().toString());
+
+    }
+}
