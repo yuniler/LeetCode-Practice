@@ -1,0 +1,33 @@
+
+83.
+class Solution {
+    public ListNode deleteDuplicates(ListNode head) {
+        if(head == null || head.next == null) return head;
+
+
+        head.next = deleteDuplicates(head.next);
+        if(head.val == head.next.val)
+        head = head.next;
+        return head; 
+    }
+}
+
+
+82.
+class Solution {
+    public ListNode deleteDuplicates(ListNode head) {
+        if(head == null || head.next == null)return head;
+
+        if(head.val == head.next.val){
+            while(head.next != null&& head.val == head.next.val){
+                //相同
+                head.next = head.next.next;
+            }
+
+            head = deleteDuplicates(head.next);//重新换链
+        }else{//值不相等
+            head.next = deleteDuplicates(head.next);
+        }
+        return head;
+    }
+}
