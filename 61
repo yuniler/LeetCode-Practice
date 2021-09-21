@@ -1,0 +1,45 @@
+class Solution {
+    public ListNode rotateRight(ListNode head, int k) {
+        //快慢指针法
+
+        if(head == null) return head;
+
+
+        //链表节点个数
+        int len = calclulateLen(head);
+        k = k % len;
+
+        ListNode fast = head;
+        ListNode low = head;
+
+        for(int i = 0; i < k;i++){
+            fast = fast.next;
+        }
+
+        //保证同时移动，fast为空时
+        while(fast.next != null){
+            fast = fast.next;
+            low = low.next;
+
+            
+        } 
+        //链表链成环
+            fast.next = head;
+
+            //新的头节点
+            head = low.next;
+
+            //尾
+            low.next = null;
+          return head; 
+         
+    }
+    private int calclulateLen(ListNode head){
+            int len = 0;
+            while(head != null){
+                head = head.next;
+                len++;
+            }
+            return len;
+        }
+}
