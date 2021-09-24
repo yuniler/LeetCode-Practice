@@ -1,0 +1,23 @@
+class Solution {
+    public String reverseWords(String s) {
+        //定义双子针
+        char[] c = s.toCharArray();
+        int left = 0,right = s.length() - 1;
+        //返回
+        StringBuilder str = new StringBuilder();
+        while(c[left] == ' ') left++;//刚进入如果整个字符串前后有‘ ’消掉
+        while(c[right] == ' ') right--;
+        //遍历字符串
+        while(left <= right){
+         int index = right;//从后向前
+        while(index >= left && c[index] != ' ') index--;//找到从后往前第一个单词.
+        for(int i = index+1;i <= right;i++){//将第一个单词依次填入
+             str.append(c[i]);
+        }
+        if(index > left) str.append(' ');//空格
+        while(index >= left && c[index] == ' ') index--;//继续下一次遍历
+        right = index;
+        }
+        return str.toString();
+    }
+}
