@@ -1,0 +1,20 @@
+class Solution {
+    public void rotate(int[] nums, int k) {
+        //旋转数组
+        //三次旋转。第一次整体反转。第二次，在断点处将前面反转，第三次在断点处将后面反转
+        k %= nums.length;
+        reverse(nums,0,nums.length - 1);
+        reverse(nums,0,k - 1);
+        reverse(nums,k,nums.length - 1);
+        
+    }
+    public void reverse(int[] nums,int start,int end){
+        while(start < end){
+            int temp = nums[start];
+            nums[start] = nums[end];
+            nums[end] = temp;
+            start += 1;
+            end -= 1;
+        }
+    }
+}
