@@ -1,0 +1,21 @@
+class Solution {
+    public List<String> summaryRanges(int[] nums) {
+        //双子针法
+        List<String> res = new ArrayList<>();
+
+        int i = 0;
+        for(int j = 0;j< nums.length;j++){
+            if(j + 1 == nums.length || nums[j + 1] != nums[j] + 1){//j向后遍历，不满足递增时
+                //当前区间写入
+                StringBuilder sb = new StringBuilder();
+                sb.append(nums[i]);
+                if(i!=j){
+                    sb.append("->").append(nums[j]);
+                }
+                res.add(sb.toString());
+                i = j + 1;//i前子针向后遍历
+            }
+        }
+        return res;
+    }
+}
