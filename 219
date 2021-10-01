@@ -1,0 +1,17 @@
+class Solution {
+    public boolean containsNearbyDuplicate(int[] nums, int k) {
+        //使用set来保存避免重复
+        HashSet<Integer> set = new HashSet<>();
+
+        for(int i = 0;i < nums.length;i++){
+            if(set.contains(nums[i])){//说明在间隔k个元素，出现了绝对值
+                return true;
+            }
+            set.add(nums[i]);
+            if(set.size() > k){//出现间隔，也就是二者的差值为k
+                set.remove(nums[i - k]);//移除元素
+            }
+        }
+        return false;
+    }
+}
