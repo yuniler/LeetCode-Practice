@@ -1,0 +1,25 @@
+class Solution {
+    public boolean isPalindrome(ListNode head) {
+        //回文链表
+        //将链表值赋值到数组中，双指针来判断首尾
+        List<Integer> list = new ArrayList<>();
+
+        //复制
+        ListNode node = head;
+        while(node != null){
+            list.add(node.val);
+            node = node.next;
+        }
+
+        //双指针
+        int front = 0;
+        int back = list.size() - 1;
+        while(front < back){
+            if(list.get(front) != list.get(back)) return false;
+            front++;
+            back--;
+        }
+        return true;
+
+    }
+}
