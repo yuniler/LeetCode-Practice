@@ -1,0 +1,22 @@
+class Solution {
+    public int findDuplicate(int[] nums) {
+        int len = nums.length;
+
+        for(int i = 0;i < len - 1;i ++){
+            while((nums[i] - 1) != i){
+                //待交换的元素直接返回
+                if(nums[i] == nums[nums[i] - 1]){
+                    return nums[i];
+                }
+                swap(nums,i,nums[i] - 1);
+            }
+        }
+        //通常最后一个为重复元素
+        return nums[len - 1];
+    }
+    private void swap(int[] nums,int i,int j){
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+}
