@@ -1,0 +1,25 @@
+class Solution {
+    public List<List<Integer>> generate(int numRows) {
+        //杨辉三角
+        //所有的第一个都为1，其他的等于上一行的前俩个相加
+        List<List<Integer>> list =  new ArrayList<>();
+        
+        for(int i = 0; i < numRows;i++){
+            List<Integer> rowList = new ArrayList<>();
+            for(int j = 0; j <= i;j++){
+                //第一个和最后一个
+                if(j == 0 || j == i){
+                    rowList.add(1);
+                }else{
+                    //前一行的俩个元素 i 为当前行。 j 为当前列
+                    rowList.add(list.get(i - 1).get(j - 1) + list.get(i - 1).get(j));//
+                }
+            }
+            list.add(rowList);
+        }
+        return list;
+        
+    }
+}
+
+
