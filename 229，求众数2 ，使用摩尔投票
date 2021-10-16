@@ -1,0 +1,60 @@
+class Solution {
+    public List<Integer> majorityElement(int[] nums) {
+        //投票并且配对
+        //投票时，一样这只加一个
+        //都不一样则同时--
+        //最后判断 》 3 / n
+        
+        //投票--配对
+        List<Integer> list = new ArrayList<>();
+        if(nums == null || nums.length == 0) return new ArrayList();
+
+
+        int count1 = nums[0];
+        int count2 = nums[0];
+        int c1 = 0;
+        int c2 = 0;
+
+        for(int i = 0; i < nums.length;i++){
+            if(count1 == nums[i]){
+                c1++;
+                continue;
+            }
+            if(count2 == nums[i]){
+                c2++;
+                continue;
+            }
+            if(c1 == 0){
+                count1 = nums[i];
+                c1++;
+                continue;
+            }
+            if(c2 == 0){
+                count2 = nums[i];
+                c2++;
+                continue;
+            }
+            //都没配对上
+            c1--;
+            c2--;
+        }
+
+//至多有2个候选人 ，进行投票
+        c1 = 0;
+        c2 = 0;
+        for(int num : nums){
+            if(count1 == num){
+                c1++;
+            }else if(count2 == num){
+                c2++;
+            }
+        }
+
+        //
+        if(c1 > nums.length / 3) list.add(count1);
+        if(c2 > nums.length / 3) list.add(count2);
+        return list;
+
+
+    }
+}
