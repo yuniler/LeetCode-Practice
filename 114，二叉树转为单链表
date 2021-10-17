@@ -1,0 +1,37 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public void flatten(TreeNode root) {
+        //对二叉树进行遍历，找到根左的最右节点，在将根节点右节点断开，插到右节点
+        while(root != null){
+            if(root.left == null){
+                root = root.right;//left为空，向后遍历,将右不但赋为跟
+            }else{
+            //左子树的最右节点
+            TreeNode pre = root.left;
+            while(pre.right != null){
+                pre = pre.right;
+            }
+            pre.right = root.right;//插到根节点的右边，跟节点是不断变化的
+            //将整个左子树，右移.整课左子树，移到右边
+            root.right = root.left;
+            root.left = null;//左置空
+            root = root.right;//左节点置空完后，填入下一个右节点
+            }
+        }
+       
+    }
+}
