@@ -1,0 +1,30 @@
+class Solution {
+    public boolean canConstruct(String ransomNote, String magazine) {
+        //使用数字统计（将俩个都转为字符串,然后- 'a'，统计数字次数，如果相等则）
+
+        //0-25进行数字统计
+        int[] countRN = new int[26];
+        int[] countM = new int[26];
+
+        //转
+
+        char[] charRN = ransomNote.toCharArray();
+        char[] charM = magazine.toCharArray();
+
+        for(char c : charRN){
+            //某数组索引上为1，在-完之后
+            countRN[c - 'a']++;
+        }
+
+        for(char d : charM){
+            countM[d - 'a']++;
+        }
+
+        for(int i = 0;i < 26;i++){
+            if(countRN[i] > countM[i]){
+                return false;
+            }
+        }
+        return true;
+    }
+}
