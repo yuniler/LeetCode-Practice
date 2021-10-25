@@ -1,0 +1,18 @@
+class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) {
+        //坐标轴法，从左下角开始，设定一个值，当前值<target -->列++。。。当前值》targetrow--;
+        int row = matrix.length - 1,columsn = 0;
+        
+        while(row>=0&&columsn<matrix[0].length){//列
+            int num = matrix[row][columsn];//每次都要更改
+            if(num == target){
+                return true;
+            }else if(num > target){
+                row--;
+            }else{
+                columsn++;
+            }
+        }
+        return false;
+    }
+}
